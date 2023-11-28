@@ -1,0 +1,105 @@
+<%- include("partials/header") -%>
+
+<h2 id="text_Top">Write your Interview Experiences🚀</h2>
+
+<div>
+  <h5 id="text_Top">You can comopse your interview experiences here!</h5>
+</div>
+
+<div class="form-width container">
+    <form action="/compose" method="post" class="composeForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="">Company Name🏢</label>
+          <input type="text" class="form-control" name="postTitle" />
+        </div>
+      
+        <div class="form-group col-md-6">
+          <label for="companyType">Company Type⭐</label>
+          <select name="companyType" id="companyType" class="form-control">
+            <option value="">Not Selected</option>
+            <option value="Core">Core Company</option>
+            <option value="IT Service">IT Service Based</option>
+            <option value="IT Product">IT Product Based</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="">Job Role💼</label>
+          <input type="text" class="form-control" name="jobRole" />
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="">Total Rounds◀️</label>
+          <input type="number" class="form-control" name="rounds" min="1" />
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="batch">Batch📅</label>
+          <select name="batch" id="batch" class="form-control">
+            <option value="">Not Selected</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019 or Earlier">2019 or Earlier</option>
+          </select>
+        </div>
+      
+        <div class="form-group col-md-6">
+          <label for="">Interview Date📅</label>
+          <input type="month" class="form-control" name="dateGiven"/>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="difficulty">Difficulty of Interview✅</label>
+          <select name="difficulty" id="difficulty" class="form-control">
+            <option value="">Not Selected</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="Verdict">Verdict❓</label>
+          <select name="verdict" id="Verdict" class="form-control">
+            <option value="Selected">✅Selected</option>
+            <option value="Not Selected">❌Not Selected</option>
+            <option value="Result Awaiting">🫸Result Awaiting</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Interview Experience🖊️</label>
+        <textarea
+          type="text"
+          class="form-control"
+          name="postBody"
+          rows="4"
+          cols="30"
+        ></textarea>
+      </div>
+      
+
+      <div class="but">
+        <button class="btn btn-success btn-md w-100" type="submit" name="button">
+          Post Your Interview Experience 🚀
+        </button>
+      </div>
+    </form>
+</div>
+</div>
+
+<div>
+  <h5 id="text_Top">Thank you for using InterviewXP!!</h5>
+</div>

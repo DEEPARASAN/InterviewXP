@@ -1,0 +1,59 @@
+<%-include ("partials/header.ejs") %>
+<div class="maindiv">
+  <h2 style="text-align: center">Welcome User👋 Explore some Interview Experiences 🙌</h2>
+
+  <section class="searchsort align-self-center">
+    <div class="container-fluid searchPart bgClass">
+      <div class="formSearch">
+        <div class="searchInputForm">
+          <input type="text" id="search" class="form-control" placeholder="Search Interview Experiences by Company names" onkeyup="searchPosts()" autocomplete="off">
+        </div>
+        <h4 id="countResult" class="text-center mt-3 displaycount"></h4>
+      </div>
+    </div>
+  </section>
+  
+  <!-- <div class="container-fluid"> 
+    <div class="row" id="post-container">
+        <table>
+            <tr>
+                <th>Company Name</th>
+                <th>Job Role</th>
+                <th>Difficulty</th>
+                <th>Batch</th>
+            </tr>
+        <% posts.forEach(function(post){ %>
+            <tr>
+                <td><%=post.postTitle%></td>
+                <td><%=post.role%></td>
+                <td><%=post.batch%></td>
+
+            </tr>
+        <% }) %>
+    </div> -->
+
+    <div class="container">
+      <table class="table table-bordered" id="bookstable">
+        <thead>
+          <tr>
+            <th scope="col">Company Name</th>
+            <th scope="col">Job Role</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Batch</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody">
+          <% posts.forEach(function(post){ %>
+            <tr>
+                <td><%=post.postTitle%></td>
+                <td><%=post.jobRole%></td>
+                <td><%=post.batch%></td>
+
+            </tr>
+        <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

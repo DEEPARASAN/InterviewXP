@@ -1,0 +1,65 @@
+<%-include ("partials/header.ejs") %>
+<div class="maindiv">
+  <h2 style="text-align: center">Welcome User👋 Explore some Interview Experiences 🙌</h2>
+
+  <section class="searchsort align-self-center">
+    <div class="container-fluid searchPart bgClass">
+      <div class="formSearch">
+        <div class="searchInputForm">
+          <input type="text" id="search" class="form-control" placeholder="Search Interview Experiences by Company names" onkeyup="searchPosts()" autocomplete="off">
+        </div>
+        <h4 id="countResult" class="text-center mt-3 displaycount"></h4>
+      </div>
+    </div>
+  </section>
+  
+  <div class="container-fluid"> 
+    <div class="row" id="post-container">
+      <% posts.forEach(function(post){ %>
+        <div class="cards col-lg-4 col-md-12 col-sm-12 mb-3">
+          <div class="card">
+            <div class="card-header text_date">
+              <div class="post_tile"><%= post.postTitle%> - <%= post.roleOffered%> - <%= post.batch%></div>
+            </div>
+            <div class="card-body">
+              <p class="card-text" id="displayText" ><%= post.postBody.slice(0,100)%></p>
+            </div>
+            <div class="buttonCards mt-4 py-3 me-1">
+              <div class="btn readmorePost txt-danger" onclick = "location.href='/posts/<%= post.postTitle%>'">Read More</div>
+              <div class="btn readmorePost txt-danger"><%= post.difficultyLevel%></div>
+              <div class="btn readmorePost txt-danger"><%= post.verdict%></div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchPosts() {
+    const searchInput = document.getElementById('search');
+    const posts = document.querySelectorAll(".post_tile");
+    const postContainer = document.getElementById('postContainer');
+    const countResult = document.getElementById('countResult');
+
+    searchInput.addEventListener("keyup", function (event) {
+        const userQuery = event.target.value.toLowerCase();
+        let count = 0;
+
+        posts.forEach((post) => {
+            const postTitle = post.textContent.toLowerCase();
+            const parentCard = post.closest('.cards');
+            if (postTitle.includes(userQuery)) {
+              parentCard.style.display = "block"; // Making Visible
+              ++count;
+            } else {
+              parentCard.style.display = "none";
+            }
+        });
+        
+        countResult.innerHTML = `${count} Posts Found`;
+    });
+  }
+</script>
+
